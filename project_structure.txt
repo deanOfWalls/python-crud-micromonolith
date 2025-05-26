@@ -1,0 +1,27 @@
+.
+├── app
+│   ├── config
+│   │   └── database.py
+│   ├── controllers
+│   │   └── person_controller.py
+│   ├── db
+│   │   ├── init_db.py
+│   │   ├── __init__.py
+│   │   └── session.py
+│   ├── interfaces
+│   │   └── person_service.py
+│   ├── main.py
+│   ├── mixins
+│   │   └── person_service_mixin.py
+│   ├── models
+│   │   └── person.py
+│   ├── repositories
+│   │   └── person_repository.py
+│   ├── services
+│   │   └── person_service.py
+│   └── static
+├── project_structure.txt
+├── requirements.txt
+└── tests
+
+12 directories, 13 files

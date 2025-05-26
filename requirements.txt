@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlmodel
+pytest
+black
+ruff
+mypy
