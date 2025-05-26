@@ -3,11 +3,10 @@ All method implementations go in a mixin.
 ➤ This keeps logic out of interfaces and avoids inheritance bloat in concretes.
 
 Abstracts wire state, concretes wire values.
-➤ Abstract base classes may wire shared __init__ state (rare); concretes assemble dependencies via constructors.
+➤ Abstract base classes may wire shared **init** state (rare); concretes assemble dependencies via constructors.
 
 Interfaces define contracts, mixins define behavior.
 ➤ abc.ABC declares what must exist; mixins declare how it behaves.
-
 
 # Python CRUD Monolith Walkthrough
 
@@ -132,6 +131,8 @@ class PersonService(Protocol):
 ### ✅ `mixins/person_service_mixin.py`
 
 ```python
+from datetime import date
+
 class PersonServiceMixin:
     repository: PersonRepository
 
@@ -150,7 +151,7 @@ class PersonServiceMixin:
             return None
         person.first_name = data.first_name
         person.last_name = data.last_name
-        person.birth_date = data.birth_date
+        person.birth_date = date.fromisoformat(str(data.birth_date))
         return self.repository.save(person)
 
     def delete(self, person_id: int) -> Optional[Person]:
@@ -244,5 +245,3 @@ if os.path.exists(os.path.join(static_path, "index.html")):
 ✅ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for the Swagger docs
 
 You're done.
-
-
