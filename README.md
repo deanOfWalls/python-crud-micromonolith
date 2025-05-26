@@ -1,4 +1,5 @@
 ✅ The 3 Statements for Doing Python Right (Inspired by Java Best Practices)
+
 All method implementations go in a mixin.
 ➤ This keeps logic out of interfaces and avoids inheritance bloat in concretes.
 
