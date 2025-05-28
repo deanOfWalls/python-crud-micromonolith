@@ -3,7 +3,7 @@ from app.models.person import Person
 from app.interfaces.person_service import PersonService
 
 
-class PersonServiceImpl:
+class PersonServiceDecorator:
     def __init__(self, delegate: PersonService):
         self.delegate = delegate
 
