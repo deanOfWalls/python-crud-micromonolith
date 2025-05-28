@@ -3,9 +3,10 @@ from typing import List
 from sqlmodel import Session
 
 from app.models.person import Person, PersonCreate
-from app.repositories.person_repository import PersonRepository
-from app.services.person_service import PersonServiceImpl
 from app.db.session import get_session
+from app.repositories.person_repository import PersonRepository
+from app.interfaces.person_service import PersonService  # Logic lives here
+from app.services.person_service import PersonServiceImpl  # Decorator layer
 
 router = APIRouter(prefix="/person", tags=["Person"])
 
@@ -13,7 +14,8 @@ router = APIRouter(prefix="/person", tags=["Person"])
 # Dependency injector
 def get_person_service(session: Session = Depends(get_session)) -> PersonServiceImpl:
     repo = PersonRepository(session)
-    return PersonServiceImpl(repo)
+    base_service = PersonService(repo)
+    return PersonServiceImpl(base_service)
 
 
 @router.post("/", response_model=Person)

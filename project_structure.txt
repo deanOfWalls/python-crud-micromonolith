@@ -11,17 +11,20 @@
 │   ├── interfaces
 │   │   └── person_service.py
 │   ├── main.py
-│   ├── mixins
-│   │   └── person_service_mixin.py
 │   ├── models
 │   │   └── person.py
 │   ├── repositories
 │   │   └── person_repository.py
 │   ├── services
-│   │   └── person_service.py
+│   │   └── person_service_impl.py
 │   └── static
+│       ├── index.html
+│       ├── service.js
+│       └── style.css
+├── app.db
 ├── project_structure.txt
+├── README.md
 ├── requirements.txt
 └── tests
 
-12 directories, 13 files
+11 directories, 17 files
